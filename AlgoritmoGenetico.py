@@ -32,7 +32,6 @@ S_selection = ag.ini_ExponentialRanking(0.97, qtd_ind)
 
 #%% Avaliacao da populacao inicial
 org = ag.gera_populacao (qtd_ind, tam_dna, lim_sup, lim_inf)
-#retorno = ag.avaliacao (org, qtd_ind, tam_dna, 0, kcal, gpl)
 retorno = ag.avaliacao_dieta_flexivel (org, qtd_ind, tam_dna, individuos_salvos, alimentosKcal, alimentosProteina, alimentosGordura, alimentosCarboidratos)
 org = ag.ordena(org, tipo)
 print('best fit: ', org['fitness'][-1])
@@ -63,7 +62,6 @@ for geracao in range(0, geracoes):
 
         ag.mutacao(org, filho, tam_dna, lim_sup, lim_inf, geracao, geracoes, amp_mut, prob_mutacao)
 
-    #retorno = ag.avaliacao (org, qtd_ind, tam_dna, individuos_salvos, kcal, gpl)
     retorno = ag.avaliacao_dieta_flexivel (org, qtd_ind, tam_dna, individuos_salvos, alimentosKcal, alimentosProteina, alimentosGordura, alimentosCarboidratos)
     org = ag.ordena(org, tipo)
 
